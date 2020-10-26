@@ -6,7 +6,7 @@
 
 [1、好的推荐系统有什么标准？](5min-eval.md)
 
-[2、协同过滤推荐](5min-RecColFilter.md)
+[2、协同过滤推荐](5Min-RecColFilter.md)
 
 [3、基于内容的推荐](5min-RecContent.md)
 
