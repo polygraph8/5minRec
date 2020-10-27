@@ -80,7 +80,7 @@ https://blog.csdn.net/u013714645/article/details/97899342
 
 https://colab.research.google.com/github/shenweichen/DeepMatch/blob/master/examples/colab_MovieLen1M_YoutubeDNN.ipynb
 
-### 3、DSSM   Deep Structured Semantic Models
+### 3、DSSM 
 
  DSSM模型分别使用相对独立的两个复杂网络构建用户相关特征的user embedding和item相关特征的item embedding，所以称为双塔模型。
 
@@ -126,9 +126,7 @@ videoembeding 视频id, channel id,views, likes
 
 模型训练好了之后会分别得到user embedding和ad embedding，将它们存储到redis这一类内存数据库中。如果要为某个特定的广告推荐人群，则将该广告的ad embedding分别和所有人群的user embedding计算cos相似度。选择距离最近的N个人群子集作为广告投放人群，这样就完成了广告推荐任务。
 
-
-
-### 4、深度匹配树 TDM
+### 4、深度匹配树 TDM*
 
 #### 4.1 基本原理
 
