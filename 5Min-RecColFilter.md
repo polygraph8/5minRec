@@ -63,6 +63,12 @@ def UserSimiliar(train):
                    W[u][v] = cuv/math.sqrt(N[u]*N[v])    # 3. 计算用户和用户的相似度矩阵 
     return W
 ```
+![image-20201031185551522](5Min-RecColFilter/image-20201031185551522.png)
+
+​                                                             倒排表和用户相似度矩阵
+
+
+
 #### 2.2 计算推荐
 
 根据上面得到的相似度矩阵，取出他兴趣类似的K 个用户喜欢的任意物品,推荐给用户。
@@ -70,7 +76,7 @@ def UserSimiliar(train):
 ```python
 def Recommend(u,train,W):
     rank ={}
-    interacted_items = train[u]  # 根据2.2 中得到的相似用户，用户喜欢的物品
+    interacted_items = train[u]  # 用户喜欢的物品
     for v, wuv in sorted(W[u].items,key=itemgetter(1)),reverse= True)[0:k]:#用户相似TopN 
            for i,rvi in train[v].items:   # 相似用户喜欢的物品    
                if i not in interactive_items:  #不是用户U 喜欢的，就推荐
@@ -104,7 +110,7 @@ A 和B 相似，是由于喜欢A 的用户大都也喜欢B。例如：购买item
 
 也叫同现相似度。
 
-![1603176439551](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1603176439551.png)
+
 
 **基于ItemCF的原理和基于UserCF类似，只是在计算邻居时采用物品本身，而不是从用户的角度。** 
 
@@ -160,7 +166,7 @@ Sij = cij /match.sqrt(N[i]*N[j])   计算物品相似度
 #### 3.4 应用场景
 
 **itemcf适合电商，电影网站**。电商网站中用户的兴趣是比较固定和持久的。 
-用户太多，**很难计算用户相似度矩阵的场景** 
+同样也适合于用户太多，**很难计算用户相似度矩阵的场景** 
 
 
 
@@ -186,17 +192,31 @@ Sij = cij /match.sqrt(N[i]*N[j])   计算物品相似度
 
 1. 建立物品的同现矩阵, 按用户分组，找到每个用户所选的物品，单独出现计数及两两一组计数 
 
-![1603178023540](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1603178023540.png)
-
-
+1. ​     [101] [102] [103] [104] [105] [106] [107]
+2. [101]  5    3    4    4    2    2    1
+3. [102]  3    3    3    2    1    1    0
+4. [103]  4    3    4    3    1    2    0
+5. [104]  4    2    3    4    2    2    1
+6. [105]  2    1    1    2    2    1    1
+7. [106]  2    1    2    2    1    2    0
+8. [107]  1    0    0    1    1    0    1 
 
 2. 建立用户对物品的评分矩阵, 按用户分组，找到每个用户所选的物品及评分 
 
-   ![1603178067311](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1603178067311.png)
+   1. ​     U3
+   2. [101] 2.0
+   3. [102] 0.0
+   4. [103] 0.0
+   5. [104] 4.0
+   6. [105] 4.5
+   7. [106] 0.0
+   8. [107] 5.0
 
    
 
-3. 矩阵计算推荐结果
+   
+
+3. 矩阵计算推荐结果，取最高值
 
 <img src="image/1603189615686.png" alt="1603189615686" style="zoom:67%;" />
 
