@@ -1,2 +1,2 @@
-1- ´ÓÕÙ»Ø²ãÖÐÑ¡³ö×îÓÅµÄTopK£¬ÆäÖÐÐèÒªÒÀ¿¿¸÷ÖÖ»úÆ÷Ñ§Ï°Ëã·¨ÓëÉñ¾­ÍøÂçÄ£ÐÍÀ´¶ÔºòÑ¡¼¯ÖÐµÄÄÚÈÝ½øÐÐÔ¤²â´ò·ÖÅÅÐò£¬ÈçWIDE&DEEP£¬LR+GBDTµÈ¡£
-2- Éî¶ÈÑ§Ï°Ëã·¨µÄ½²½â
+1- WIDE&DEEPï¼ŒLR+GBDTç­‰ã€‚
+2- æ·±åº¦å­¦ä¹ ç®—æ³•
